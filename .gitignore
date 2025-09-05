@@ -1,0 +1,32 @@
+# Android / Gradle
+.gradle/
+.build/
+local.properties
+*.iml
+.idea/
+app/build/
+*/build/
+captures/
+*.keystore
+*.jks
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python / Notebooks
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+.env
+
+# Large model artifacts (we don't commit them)
+models/**/*.bin
+models/**/*.param
+models/**/*.pt
+models/**/*.pth
+models/**/*.pnnx
+models/**/*.tflite
+models/**/*.pte
+assets/**/*.zip
