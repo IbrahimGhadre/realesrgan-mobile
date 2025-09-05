@@ -1,6 +1,7 @@
 # Real-ESRGAN Mobile
 
-On-device super-resolution for dermatology use-cases — Android apps with **NCNN (C++/JNI)** and **ExecuTorch (Java)**, plus reproducible benchmarking (PSNR, SSIM, MSE, LPIPS).
+On-device super-resolution for dermatology use-cases.
+Android apps with **NCNN (C++/JNI)** and **ExecuTorch (Java)**, plus reproducible benchmarking (PSNR, SSIM, MSE, LPIPS).
 
 ## 🚀 Quick Start
 - Android: open `android/ncnn-app` or `android/executorch-app` in Android Studio, place model files in `app/src/main/assets/`, build Debug, run on device.
