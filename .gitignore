@@ -30,3 +30,8 @@ models/**/*.pnnx
 models/**/*.tflite
 models/**/*.pte
 assets/**/*.zip
+
+# Third-party SDKs and dependencies
+android/ncnn-app/third_party/
+android/executorch-app/third_party/
+
