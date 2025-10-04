@@ -23,12 +23,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Paths to third_party and libs/include (relative to this file)
 set(THIRD_PARTY_DIR         ${CMAKE_SOURCE_DIR}/../../../../third_party)
-set(NCNN_INCLUDE_DIR        ${CMAKE_SOURCE_DIR}/../../../../include/ncnn)
-set(NCNN_LIB_DIR            ${CMAKE_SOURCE_DIR}/../../../../libs/${ANDROID_ABI})
+set(NCNN_INCLUDE_DIR        ${CMAKE_SOURCE_DIR}/include/ncnn)
+set(NCNN_LIB_DIR            ${CMAKE_SOURCE_DIR}/libs/${ANDROID_ABI})
 set(NCNN_LIB                ${NCNN_LIB_DIR}/libncnn.so)
 
 # --- OpenCV Android SDK (use native sdk folder)
-set(OPENCV_SDK_DIR          ${THIRD_PARTY_DIR}/opencv-4.11.0-android-sdk/sdk/native)
+set(OPENCV_SDK_DIR          ${THIRD_PARTY_DIR}/opencv-4.11.0-android-sdk/OpenCV-android-sdk/sdk/native)
 set(OPENCV_INCLUDE_DIR      ${OPENCV_SDK_DIR}/jni/include)
 set(OPENCV_LIB_DIR          ${OPENCV_SDK_DIR}/libs/${ANDROID_ABI})
 set(OPENCV_JAVA_LIB         ${OPENCV_LIB_DIR}/libopencv_java4.so)
@@ -93,6 +93,15 @@ add_library(${CMAKE_PROJECT_NAME} SHARED
         native-lib.cpp
 )
 
+# --- ✅ NEW: resolve the shared C++ runtime from the NDK
+find_library(CPP_SHARED NAMES c++_shared)
+
+# Optional: fail early if not found (rare)
+if(NOT CPP_SHARED)
+    message(FATAL_ERROR "Could not find c++_shared from the NDK toolchain.")
+endif()
+
+
 # =============================================================================
 # Link everything
 # Order: your lib, third-party libs, system libs
@@ -111,6 +120,7 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
         android
         jnigraphics
 
-        # C++ runtime provided by the NDK (do NOT hardcode a path to libc++_shared.so)
-        c++_shared
+        # ✅ Use the resolved STL so Gradle packs libc++_shared.so into the APK
+        ${CPP_SHARED}
+
 )
