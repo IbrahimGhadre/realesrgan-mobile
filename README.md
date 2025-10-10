@@ -3,33 +3,38 @@
 On-device super-resolution for dermatology use-cases.
 Android apps with **NCNN (C++/JNI)** and **ExecuTorch (Java)**, plus reproducible benchmarking (PSNR, SSIM, MSE, LPIPS).
 
-## 🎬 Demo
+## 🎬 Demo (NCNN vs ExecuTorch)
 
 <p align="center">
-  <img src="docs/demo ncnn app.gif" alt="Real-ESRGAN Mobile Demo" width="320"/>
+  <figure style="display:inline-block; margin:0 12px; text-align:center;">
+    <img src="docs/demo ncnn app.gif" alt="NCNN demo" width="360"/>
+    <figcaption><b>NCNN</b></figcaption>
+  </figure>
+  <figure style="display:inline-block; margin:0 12px; text-align:center;">
+    <img src="docs/docs/demo execu app.gif" alt="ExecuTorch demo" width="360"/>
+    <figcaption><b>ExecuTorch</b></figcaption>
+  </figure>
 </p>
 
-This short demo shows the **Real-ESRGAN Mobile (NCNN)** app running on an Android device.  
-The app performs single-image super-resolution in real time, with preprocessing, NCNN inference, and result saving to `/Pictures/NCNNOutput`.
 
 
 ## 🚀 Quick Start
 - Android: open `android/ncnn-app` or `android/executorch-app` in Android Studio, place model files in `app/src/main/assets/`, build Debug, run on device.
 - Reproducibility: see `notebooks/` and `scripts/` for export and metrics.
 
+
 ## 📁 Repository Layout
 - `android/ncnn-app/` – Android app using NCNN + OpenCV  
-- `models/` – Model setup and conversion instructions  
-- `docs/` – Demo GIF and future documentation  
-
-> ExecuTorch app, notebooks and scripts will be added later.
+- `android/executorch-app/` – Android app using **ExecuTorch** (Java-only)  
+- `docs/` – Demo GIFs and documentation
 
 
 ## 🧪 Pipeline (shared)
 Center crop → Gaussian blur → simulated JPEG (downscale–upscale) → resize 224×224 → normalization → Real-ESRGAN inference.
 
-## 🧠 Models
-- NCNN model files are included under `android/ncnn-app/app/src/main/assets/`.
+## 🧠 Models included
+- **NCNN**: `.param` + `.bin` in `android/ncnn-app/app/src/main/assets/`
+- **ExecuTorch**: `.pte` in `android/executorch-app/app/src/main/assets/`
 
 
 ## 📄 License & Citation
