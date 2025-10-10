@@ -28,8 +28,9 @@ The app performs single-image super-resolution in real time, with preprocessing,
 ## 🧪 Pipeline (shared)
 Center crop → Gaussian blur → simulated JPEG (downscale–upscale) → resize 224×224 → normalization → Real-ESRGAN inference.
 
-## 🔗 Models
-See `models/README_MODELS.md` for how to download/convert official weights to NCNN (`.param/.bin`) and ExecuTorch (`.pte`).
+## 🧠 Models
+- NCNN model files are included under `android/ncnn-app/app/src/main/assets/`.
+
 
 ## 📄 License & Citation
 - Code under **MIT** (unless noted otherwise).
