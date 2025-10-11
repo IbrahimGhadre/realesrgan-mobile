@@ -11,7 +11,7 @@ Android apps with **NCNN (C++/JNI)** and **ExecuTorch (Java)**, plus reproducibl
     <figcaption><b>NCNN</b></figcaption>
   </figure>
   <figure style="display:inline-block; margin:0 12px; text-align:center;">
-    <img src="docs/docs/demo execu app.gif" alt="ExecuTorch demo" width="360"/>
+    <img src="docs/demo execu app.gif" alt="ExecuTorch demo" width="360"/>
     <figcaption><b>ExecuTorch</b></figcaption>
   </figure>
 </p>
