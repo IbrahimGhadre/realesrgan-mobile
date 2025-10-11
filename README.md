@@ -19,8 +19,7 @@ Android apps with **NCNN (C++/JNI)** and **ExecuTorch (Java)**, plus reproducibl
 
 
 ## 🚀 Quick Start
-- Android: open `android/ncnn-app` or `android/executorch-app` in Android Studio, place model files in `app/src/main/assets/`, build Debug, run on device.
-- Reproducibility: see `notebooks/` and `scripts/` for export and metrics.
+- Android: open `android/ncnn-app` or `android/executorch-app` in Android Studio, build Debug, run on device.
 
 
 ## 📁 Repository Layout
